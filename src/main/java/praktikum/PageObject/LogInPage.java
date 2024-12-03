@@ -1,0 +1,52 @@
+package praktikum.PageObject;
+
+import io.qameta.allure.Step;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class LogInPage {
+
+    private final WebDriver driver;
+    private final By signUpButton = By.xpath("//a[@href='/register']");
+    private final By signInButton = By.xpath();
+    private final By recoverPasswordButton = By.xpath();
+    private final By emailField = By.xpath("//label[text()='Email']/following-sibling::input");
+    private final By passwordField = By.xpath("//label[text()='Пароль']/following-sibling::input");
+
+
+    public LogInPage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    @Step("нажать на кнопку Зарегистрироваться")
+    public void clickOnSignUp() {
+        driver.findElement(signUpButton).click();
+    }
+
+    @Step("заполнить поле Email")
+    public void SetEmail(String email) {
+        driver.findElement(emailField).sendKeys(email);
+    }
+
+    @Step("заполнить поле Пароль")
+    public void SetPassword(String password) {
+        driver.findElement(passwordField).sendKeys(password);
+    }
+
+    @Step("нажать на кнопку Войти")
+    public void clickOnSignInButton() {
+        driver.findElement(signInButton).click();
+    }
+
+    @Step("заполнить все поля и нажать кнопку Войти")
+    public void FullFillDataAndSignIn (String email, String password) {
+        SetEmail(email);
+        SetPassword(password);
+        clickOnSignInButton();
+    }
+
+    @Step("нажать на кнопку Восстановить пароль")
+    public void clickOnRecoverPasswordButton() {
+        driver.findElement(recoverPasswordButton).click();
+    }
+}
