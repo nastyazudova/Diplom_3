@@ -4,7 +4,7 @@ import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 
 import static java.net.HttpURLConnection.*;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class UserChecks {
     @Step("создался успешно")
@@ -15,6 +15,19 @@ public class UserChecks {
                 .extract()
                 .path("success");
         assertTrue(created);
+    }
+
+    @Step("залогинился")
+    public String checkLoggedIn(ValidatableResponse loginResponse) {
+        String bearerToken = loginResponse
+                .assertThat()
+                .statusCode(HTTP_OK)
+                .extract()
+                .path("accessToken");
+
+        assertNotEquals(0, bearerToken);
+
+        return bearerToken;
     }
 
     @Step("удалился")

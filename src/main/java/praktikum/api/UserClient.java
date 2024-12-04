@@ -28,6 +28,15 @@ public class UserClient {
                 .then().log().all();
     }
 
+    @Step("залогиниться")
+    public ValidatableResponse logIn(UserCredentials creds) {
+        return spec()
+                .body(creds)
+                .when()
+                .post(USER_PATH + "/login")
+                .then().log().all();
+    }
+
     @Step("удалить пользователя")
     public ValidatableResponse delete(String bearerToken) {
         return spec()

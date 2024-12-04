@@ -10,13 +10,14 @@ import org.openqa.selenium.WebDriver;
 import praktikum.PageObject.LogInPage;
 import praktikum.PageObject.MainPage;
 import praktikum.PageObject.RegistrationPage;
+import praktikum.api.UserChecks;
+import praktikum.api.UserClient;
 
 @RunWith(Parameterized.class)
 public class RegistrationSuccessTest {
     private final String name;
     private final String email;
     private final String password;
-
 
     @Rule
     public DriverRule factory = new DriverRule();
@@ -40,20 +41,16 @@ public class RegistrationSuccessTest {
     @DisplayName("Проверка регистрации нового пользователя")
     public void checkRegistrationSuccess()  {
         WebDriver driver = factory.getDriver();
-        var mainPage = new MainPage(driver);
 
+        var mainPage = new MainPage(driver);
         mainPage.open();
         mainPage.clickOnLogIn();
 
-
         var logInPage = new LogInPage(driver);
-
         logInPage.clickOnSignUp();
 
         var registrationPage = new RegistrationPage(driver);
-
         registrationPage.FullFillDataAndRegister(name, email, password);
         registrationPage.checkRegistrationSuccess();
-
     }
 }

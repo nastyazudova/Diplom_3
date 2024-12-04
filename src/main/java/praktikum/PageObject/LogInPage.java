@@ -4,15 +4,17 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class LogInPage {
 
     private final WebDriver driver;
     private final By signUpButton = By.xpath("//a[@href='/register']");
-    private final By signInButton = By.xpath();
-    private final By recoverPasswordButton = By.xpath();
+    private final By signInButton = By.xpath("//button[contains(text(),'Войти')]");
+    private final By recoverPasswordButton = By.xpath("//a[@href='/forgot-password']");
     private final By emailField = By.xpath("//label[text()='Email']/following-sibling::input");
     private final By passwordField = By.xpath("//label[text()='Пароль']/following-sibling::input");
-
 
     public LogInPage(WebDriver driver) {
         this.driver = driver;
@@ -48,5 +50,10 @@ public class LogInPage {
     @Step("нажать на кнопку Восстановить пароль")
     public void clickOnRecoverPasswordButton() {
         driver.findElement(recoverPasswordButton).click();
+    }
+
+    @Step("проверить выход из аккаунта по кнопке Выход")
+    public void checkSignOutBySignOutButton() {
+        assertThat(driver.findElement(signInButton).getText(), containsString("Войти"));
     }
 }

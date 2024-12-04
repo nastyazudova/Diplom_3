@@ -6,7 +6,8 @@ import org.openqa.selenium.WebDriver;
 
 public class RecoverPasswordPage {
     private final WebDriver driver;
-    private final By signInButton = By.xpath();
+
+    private final By signInButton = By.xpath("//a[@href='/login']");
 
     public RecoverPasswordPage(WebDriver driver) {
         this.driver = driver;

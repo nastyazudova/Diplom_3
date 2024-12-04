@@ -9,7 +9,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.time.Duration;
 
 public class DriverRule extends ExternalResource {
-
     private WebDriver driver;
 
     public WebDriver getDriver() {
@@ -40,7 +39,6 @@ public class DriverRule extends ExternalResource {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(EnvConfig.IMPLICIT_WAIT));
     }
-
 
     private void startYandex() {
         WebDriverManager.chromedriver().driverVersion(System.getProperty("driver.version")).setup();

@@ -16,6 +16,8 @@ public class RegistrationPage {
     private final By registrationButton = By.xpath("//button[text()='Зарегистрироваться']");
     private final By RegistrationSuccess = By.xpath("//button[contains(text(),'Войти')]");
     private final By RegistrationFail = By.xpath(".//p[text()='Некорректный пароль']");
+    private final By SignInButton = By.xpath("//a[@href='/login']");
+
     public RegistrationPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -56,5 +58,10 @@ public class RegistrationPage {
     @Step("проверить что регистрация не прошла")
     public void checkRegistrationFail() {
         assertThat(driver.findElement(RegistrationFail).getText(), containsString("Некорректный пароль"));
+    }
+
+    @Step("нажать на кнопку Войти")
+    public void clickOnSignInButton() {
+        driver.findElement(SignInButton).click();
     }
 }
