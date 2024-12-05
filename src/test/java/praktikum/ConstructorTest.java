@@ -4,7 +4,7 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import praktikum.PageObject.MainPage;
+import praktikum.pageobject.MainPage;
 
 public class ConstructorTest {
     @Rule

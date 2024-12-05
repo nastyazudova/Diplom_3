@@ -7,11 +7,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import praktikum.PageObject.LogInPage;
-import praktikum.PageObject.MainPage;
-import praktikum.PageObject.RegistrationPage;
-import praktikum.api.UserChecks;
-import praktikum.api.UserClient;
+import praktikum.pageobject.LogInPage;
+import praktikum.pageobject.MainPage;
+import praktikum.pageobject.RegistrationPage;
 
 @RunWith(Parameterized.class)
 public class RegistrationFailTest {
@@ -52,7 +50,7 @@ public class RegistrationFailTest {
         logInPage.clickOnSignUp();
 
         var registrationPage = new RegistrationPage(driver);
-        registrationPage.FullFillDataAndRegister(name, email, password);
+        registrationPage.fullFillDataAndRegister(name, email, password);
         registrationPage.checkRegistrationFail();
     }
 }

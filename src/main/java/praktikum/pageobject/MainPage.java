@@ -1,4 +1,4 @@
-package praktikum.PageObject;
+package praktikum.pageobject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,9 +18,7 @@ public class MainPage {
     private final By BunsButton = By.xpath(".//span[text()='Булки']");
     private final By SaucesButton = By.xpath(".//span[text()='Соусы']");
     private final By FillingsButton = By.xpath(".//span[text()='Начинки']");
-    private final By Buns = By.xpath(".//h2[text()='Булки']");
-    private final By Sauces = By.xpath(".//h2[text()='Соусы']");
-    private final By Fillings = By.xpath(".//h2[text()='Начинки']");
+    private final By IngredientTypeButtonSelected = By.className("tab_tab_type_current__2BEPc");
 
 
     public MainPage(WebDriver driver) {
@@ -64,16 +62,16 @@ public class MainPage {
 
     @Step("проверить переход в раздел Булки")
     public void checkTransitionToBuns() {
-        assertThat(driver.findElement(Buns).getText(), containsString("Булки"));
+        assertThat(driver.findElement(IngredientTypeButtonSelected).getText(), containsString("Булки"));
     }
 
     @Step("проверить переход в раздел Соусы")
     public void checkTransitionToSauces() {
-        assertThat(driver.findElement(Sauces).getText(), containsString("Соусы"));
+        assertThat(driver.findElement(IngredientTypeButtonSelected).getText(), containsString("Соусы"));
     }
 
     @Step("проверить переход в раздел Начинки")
     public void checkTransitionToFillings() {
-        assertThat(driver.findElement(Fillings).getText(), containsString("Начинки"));
+        assertThat(driver.findElement(IngredientTypeButtonSelected).getText(), containsString("Начинки"));
     }
 }

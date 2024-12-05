@@ -6,9 +6,9 @@ import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import praktikum.PageObject.LogInPage;
-import praktikum.PageObject.MainPage;
-import praktikum.PageObject.ProfilePage;
+import praktikum.pageobject.LogInPage;
+import praktikum.pageobject.MainPage;
+import praktikum.pageobject.ProfilePage;
 import praktikum.api.User;
 import praktikum.api.UserChecks;
 import praktikum.api.UserClient;
@@ -44,7 +44,7 @@ public class SignOutTest {
         mainPage.clickOnLogIn();
 
         var logInPage = new LogInPage(driver);
-        logInPage.FullFillDataAndSignIn(user.getEmail(), user.getPassword());
+        logInPage.fullFillDataAndSignIn(user.getEmail(), user.getPassword());
 
         mainPage.clickOnDashboardButton();
 

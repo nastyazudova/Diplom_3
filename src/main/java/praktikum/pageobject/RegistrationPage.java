@@ -1,4 +1,4 @@
-package praktikum.PageObject;
+package praktikum.pageobject;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -23,17 +23,17 @@ public class RegistrationPage {
     }
 
     @Step("заполнить поле Имя")
-    public void SetName(String name) {
+    public void setName(String name) {
         driver.findElement(nameField).sendKeys(name);
     }
 
     @Step("заполнить поле Email")
-    public void SetEmail(String email) {
+    public void setEmail(String email) {
         driver.findElement(emailField).sendKeys(email);
     }
 
     @Step("заполнить поле Пароль")
-    public void SetPassword(String password) {
+    public void setPassword(String password) {
         driver.findElement(passwordField).sendKeys(password);
     }
 
@@ -43,10 +43,10 @@ public class RegistrationPage {
     }
 
     @Step("заполнить все поля регистрации и нажать кнопку Зарегистрироваться")
-    public void FullFillDataAndRegister (String name, String email, String password) {
-        SetName(name);
-        SetEmail(email);
-        SetPassword(password);
+    public void fullFillDataAndRegister(String name, String email, String password) {
+        setName(name);
+        setEmail(email);
+        setPassword(password);
         clickOnRegistrationButton();
     }
 

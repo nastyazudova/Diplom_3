@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import praktikum.PageObject.*;
+import praktikum.pageobject.*;
 import praktikum.api.User;
 import praktikum.api.UserChecks;
 import praktikum.api.UserClient;
@@ -42,7 +42,7 @@ public class SignInTest {
         mainPage.clickOnLogIn();
 
         var logInPage = new LogInPage(driver);
-        logInPage.FullFillDataAndSignIn(user.getEmail(), user.getPassword());
+        logInPage.fullFillDataAndSignIn(user.getEmail(), user.getPassword());
 
         mainPage.clickOnDashboardButton();
 
@@ -67,7 +67,7 @@ public class SignInTest {
         mainPage.clickOnDashboardButton();
 
         var logInPage = new LogInPage(driver);
-        logInPage.FullFillDataAndSignIn(user.getEmail(), user.getPassword());
+        logInPage.fullFillDataAndSignIn(user.getEmail(), user.getPassword());
 
         mainPage.clickOnDashboardButton();
 
@@ -97,7 +97,7 @@ public class SignInTest {
         var registrationPage = new RegistrationPage(driver);
         registrationPage.clickOnSignInButton();
 
-        logInPage.FullFillDataAndSignIn(user.getEmail(), user.getPassword());
+        logInPage.fullFillDataAndSignIn(user.getEmail(), user.getPassword());
 
         mainPage.clickOnDashboardButton();
 
@@ -127,7 +127,7 @@ public class SignInTest {
         var recoverPasswordPage = new RecoverPasswordPage(driver);
         recoverPasswordPage.clickOnSignInButton();
 
-        logInPage.FullFillDataAndSignIn(user.getEmail(), user.getPassword());
+        logInPage.fullFillDataAndSignIn(user.getEmail(), user.getPassword());
 
         mainPage.clickOnDashboardButton();
 

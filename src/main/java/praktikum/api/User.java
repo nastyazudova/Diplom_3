@@ -15,5 +15,20 @@ public class User {
         return new User("jack" + RandomStringUtils.randomNumeric(5, 15) + "@yandex.ru",
                 "P@ssw0rd123", "Sparrow");
     }
+
+    public static User sixSignsPassword() {
+        return new User("jack" + RandomStringUtils.randomNumeric(5, 15) + "@yandex.ru",
+                "123456", "Sparrow");
+    }
+
+    public static User sevenSignsPassword() {
+        return new User("jack" + RandomStringUtils.randomNumeric(5, 15) + "@yandex.ru",
+                "1234567", "Sparrow");
+    }
+
+    public static User thirteenSignsPassword() {
+        return new User("jack" + RandomStringUtils.randomNumeric(5, 15) + "@yandex.ru",
+                "1234567891011", "Sparrow");
+    }
 }
 
