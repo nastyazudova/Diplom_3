@@ -26,7 +26,7 @@ public class LogInPage {
     }
 
     @Step("заполнить поле Email")
-    public void SetEmail(String email) {
+    public void setEmail(String email) {
         driver.findElement(emailField).sendKeys(email);
     }
 
@@ -42,7 +42,7 @@ public class LogInPage {
 
     @Step("заполнить все поля и нажать кнопку Войти")
     public void fullFillDataAndSignIn(String email, String password) {
-        SetEmail(email);
+        setEmail(email);
         setPassword(password);
         clickOnSignInButton();
     }

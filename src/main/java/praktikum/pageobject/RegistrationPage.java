@@ -14,9 +14,9 @@ public class RegistrationPage {
     private final By emailField = By.xpath("//label[text()='Email']/following-sibling::input");
     private final By passwordField = By.xpath("//label[text()='Пароль']/following-sibling::input");
     private final By registrationButton = By.xpath("//button[text()='Зарегистрироваться']");
-    private final By RegistrationSuccess = By.xpath("//button[contains(text(),'Войти')]");
-    private final By RegistrationFail = By.xpath(".//p[text()='Некорректный пароль']");
-    private final By SignInButton = By.xpath("//a[@href='/login']");
+    private final By registrationSuccess = By.xpath("//button[contains(text(),'Войти')]");
+    private final By registrationFail = By.xpath(".//p[text()='Некорректный пароль']");
+    private final By signInButton = By.xpath("//a[@href='/login']");
 
     public RegistrationPage(WebDriver driver) {
         this.driver = driver;
@@ -52,16 +52,16 @@ public class RegistrationPage {
 
     @Step("проверить успешную регистрацию")
     public void checkRegistrationSuccess() {
-        assertThat(driver.findElement(RegistrationSuccess).getText(), containsString("Войти"));
+        assertThat(driver.findElement(registrationSuccess).getText(), containsString("Войти"));
     }
 
     @Step("проверить что регистрация не прошла")
     public void checkRegistrationFail() {
-        assertThat(driver.findElement(RegistrationFail).getText(), containsString("Некорректный пароль"));
+        assertThat(driver.findElement(registrationFail).getText(), containsString("Некорректный пароль"));
     }
 
     @Step("нажать на кнопку Войти")
     public void clickOnSignInButton() {
-        driver.findElement(SignInButton).click();
+        driver.findElement(signInButton).click();
     }
 }

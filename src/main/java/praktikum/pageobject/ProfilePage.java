@@ -11,9 +11,9 @@ public class ProfilePage {
     private final WebDriver driver;
 
     private final By orderHistoryButton = By.xpath("//a[@href='/account/order-history']");
-    private final By ConstructorButton = By.xpath("//a[@href='/']/p[text()='Конструктор']");
-    private final By StellarBurgerButton = By.className("AppHeader_header__logo__2D0X2");
-    private final By LogOutButton = By.xpath("//button[text()='Выход']");
+    private final By constructorButton = By.xpath("//a[@href='/']/p[text()='Конструктор']");
+    private final By stellarBurgerButton = By.className("AppHeader_header__logo__2D0X2");
+    private final By logOutButton = By.xpath("//button[text()='Выход']");
 
     public ProfilePage(WebDriver driver) {
         this.driver = driver;
@@ -26,16 +26,16 @@ public class ProfilePage {
 
     @Step("нажать на кнопку Конструктор")
     public void clickOnConstructorButton() {
-        driver.findElement(ConstructorButton).click();
+        driver.findElement(constructorButton).click();
     }
 
     @Step("нажать на кнопку StellarBurger")
     public void clickOnStellarBurgerButton() {
-        driver.findElement(StellarBurgerButton).click();
+        driver.findElement(stellarBurgerButton).click();
     }
 
     @Step("нажать на кнопку Выйти")
     public void clickOnLogOutButton() {
-        driver.findElement(LogOutButton).click();
+        driver.findElement(logOutButton).click();
     }
 }

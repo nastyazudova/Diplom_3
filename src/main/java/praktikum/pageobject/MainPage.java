@@ -14,11 +14,11 @@ public class MainPage {
 
     private final By dashboardButton = By.xpath("//a[@href='/account']/p[text()='Личный Кабинет']");
     private final By logInButton = By.xpath("//button[text()='Войти в аккаунт']");
-    private final By PickIngredients = By.xpath(".//h1[text()='Соберите бургер']");
-    private final By BunsButton = By.xpath(".//span[text()='Булки']");
-    private final By SaucesButton = By.xpath(".//span[text()='Соусы']");
-    private final By FillingsButton = By.xpath(".//span[text()='Начинки']");
-    private final By IngredientTypeButtonSelected = By.className("tab_tab_type_current__2BEPc");
+    private final By pickIngredients = By.xpath(".//h1[text()='Соберите бургер']");
+    private final By bunsButton = By.xpath(".//span[text()='Булки']");
+    private final By saucesButton = By.xpath(".//span[text()='Соусы']");
+    private final By fillingsButton = By.xpath(".//span[text()='Начинки']");
+    private final By ingredientTypeButtonSelected = By.className("tab_tab_type_current__2BEPc");
 
 
     public MainPage(WebDriver driver) {
@@ -42,36 +42,36 @@ public class MainPage {
 
     @Step("проверить переход в Конструктор")
     public void checkTransitionToConstructor() {
-        assertThat(driver.findElement(PickIngredients).getText(), containsString("Соберите бургер"));
+        assertThat(driver.findElement(pickIngredients).getText(), containsString("Соберите бургер"));
     }
 
     @Step("нажать на кнопку Булки")
     public void clickOnBunsButton() {
-        driver.findElement(BunsButton).click();
+        driver.findElement(bunsButton).click();
     }
 
     @Step("нажать на кнопку Соусы")
     public void clickOnSaucesButton() {
-        driver.findElement(SaucesButton).click();
+        driver.findElement(saucesButton).click();
     }
 
     @Step("нажать на кнопку Начинки")
     public void clickOnFillingsButton() {
-        driver.findElement(FillingsButton).click();
+        driver.findElement(fillingsButton).click();
     }
 
     @Step("проверить переход в раздел Булки")
     public void checkTransitionToBuns() {
-        assertThat(driver.findElement(IngredientTypeButtonSelected).getText(), containsString("Булки"));
+        assertThat(driver.findElement(ingredientTypeButtonSelected).getText(), containsString("Булки"));
     }
 
     @Step("проверить переход в раздел Соусы")
     public void checkTransitionToSauces() {
-        assertThat(driver.findElement(IngredientTypeButtonSelected).getText(), containsString("Соусы"));
+        assertThat(driver.findElement(ingredientTypeButtonSelected).getText(), containsString("Соусы"));
     }
 
     @Step("проверить переход в раздел Начинки")
     public void checkTransitionToFillings() {
-        assertThat(driver.findElement(IngredientTypeButtonSelected).getText(), containsString("Начинки"));
+        assertThat(driver.findElement(ingredientTypeButtonSelected).getText(), containsString("Начинки"));
     }
 }
